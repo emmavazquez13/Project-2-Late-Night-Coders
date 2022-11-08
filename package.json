@@ -1,0 +1,20 @@
+{
+  "name": "project-2-late-night-coders",
+  "version": "1.0.0",
+  "description": "## Calorie Tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajsherrill2/Project-2-Late-Night-Coders.git"
+  },
+  "author": "Adam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajsherrill2/Project-2-Late-Night-Coders/issues"
+  },
+  "homepage": "https://github.com/ajsherrill2/Project-2-Late-Night-Coders#readme"
+}
