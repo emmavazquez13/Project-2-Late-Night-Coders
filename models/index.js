@@ -4,12 +4,12 @@ const History = require('./History');
 
 // Model Relationships
 User.hasMany(History, {
-    foreignKey: 'user_id',
+  foreignKey: 'user_id',
 });
 
 History.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-})
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
 
-module.exports = {User, History}; // add additional model exports
+module.exports = { User, History };

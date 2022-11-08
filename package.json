@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "npx eslint **/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,16 @@
     "chart.js": "^3.9.1",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
-    "eslint": "^8.27.0",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.7",
     "sequelize": "^6.25.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1"
   }
 }

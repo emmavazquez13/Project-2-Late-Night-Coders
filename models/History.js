@@ -14,10 +14,21 @@ History.init(
     date: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW
+      defaultValue: DataTypes.NOW,
     },
     calories: {
       type: DataTypes.DECIMAL,
+    },
+    food_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 1,
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
