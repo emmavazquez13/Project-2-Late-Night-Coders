@@ -28,6 +28,10 @@ User.init(
         isEmail: true,
       },
     },
+    calorie_goal: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -51,7 +55,7 @@ User.init(
       },
     },
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'user',

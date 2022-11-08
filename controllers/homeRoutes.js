@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { User, History } = require('../models');
 
 // GET homepage route
 router.get('/', async (req, res) => {
