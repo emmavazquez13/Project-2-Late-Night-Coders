@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { User, History } = require('../../models');
 
 // READ all users route
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({
-      attributes: { exclude: ['[password'] },
+      attributes: { exclude: ['password'] },
     });
 
     res.status(200).json(userData);
@@ -24,21 +24,8 @@ router.get('/:id', async (req, res) => {
       },
       include: [
         {
-          model: Post,
-          attributes: ['id', 'title', 'content', 'created_at'],
-        },
-
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'created_at'],
-          include: {
-            model: Post,
-            attributes: ['title'],
-          },
-        },
-        {
-          model: Post,
-          attributes: ['title'],
+          model: History,
+          attributes: ['id', 'date', 'calories', 'food_name', 'quantity'],
         },
       ],
     });
@@ -59,12 +46,13 @@ router.post('/', async (req, res) => {
     const userData = await User.create({
       username: req.body.username,
       email: req.body.email,
+      calorie_goal: req.body.calorie_goal,
       password: req.body.password
     });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userData.ussername;
+      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
@@ -77,7 +65,7 @@ router.post('/', async (req, res) => {
 // Login route
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ $or: [{ username: req.body.username}, {email: req.body.email}] });
 
     if (!userData) {
       res
@@ -91,7 +79,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
