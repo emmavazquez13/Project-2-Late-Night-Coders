@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS calcount_db;
-CREATE DATABASE calcount_db;
+DROP DATABASE IF EXISTS daily_fit_db;
+CREATE DATABASE daily_fit_db;
