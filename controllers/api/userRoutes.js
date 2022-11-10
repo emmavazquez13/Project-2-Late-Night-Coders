@@ -1,58 +1,13 @@
 const router = require('express').Router();
-const { User, History } = require('../../models');
-
-// READ all users route
-router.get('/', async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-    });
-
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// READ one user route
-router.get('/:id', async (req, res) => {
-  try {
-    const userData = await User.findOne({
-      attributes: { exclude: ['password'] },
-      where: {
-        id: req.params.id,
-      },
-      include: [
-        {
-          model: History,
-          attributes: ['id', 'date', 'calories', 'food_name', 'quantity'],
-        },
-      ],
-    });
-
-    if (!userData) {
-      res.status(404).json({ message: 'No user found with this id' });
-      return;
-    }
-    res.status(200).json(userData);
-  } catch (error) {
-    res.status(500).json(err);
-  }
-});
+const { User } = require('../../models');
 
 // CREATE user route
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      calorie_goal: req.body.calorie_goal,
-      password: req.body.password
-    });
+    const userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
@@ -65,12 +20,12 @@ router.post('/', async (req, res) => {
 // Login route
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ $or: [{ username: req.body.username}, {email: req.body.email}] });
+    const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
@@ -79,13 +34,12 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
