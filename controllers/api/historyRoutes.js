@@ -1,53 +1,6 @@
 const router = require('express').Router();
-const { History, User } = require('../../models');
+const { History } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-// READ all user history route
-router.get('/', async (req, res) => {
-  try {
-    const historyData = await History.findAll({
-      attributes: ['id', 'date', 'calories', 'food_name', 'quantity'],
-      order: [['date', 'DESC']],
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
-
-    res.status(200).json(historyData.reverse());
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// READ one History route
-router.get('/:id', async (req, res) => {
-  try {
-    const historyData = await History.findOne({
-      where: {
-        id: req.params.id,
-      },
-      attributes: ['id', 'date', 'calories', 'food_name', 'quantity'],
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
-
-    if (!historyData) {
-      res.status(404).json({ message: 'No history found with this id' });
-      return;
-    }
-
-    res.status(200).json(historyData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 // CREATE food history route
 router.post('/', withAuth, async (req, res) => {
