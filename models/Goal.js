@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class History extends Model {}
+class Goal extends Model {}
 
-History.init(
+Goal.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,24 +11,10 @@ History.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    calories: {
-      type: DataTypes.DECIMAL,
-    },
-    food_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    quantity: {
+    calorie_goal: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        min: 1,
-      },
+      defaultValue: 1000,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -43,8 +29,8 @@ History.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'history',
+    modelName: 'goal',
   }
 );
 
-module.exports = History;
+module.exports = Goal;

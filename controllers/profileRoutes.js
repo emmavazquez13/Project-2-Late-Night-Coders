@@ -9,12 +9,6 @@ router.get('/', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
       attributes: ['id', 'date', 'calories', 'food_name', 'quantity'],
-      include: [
-        {
-          model: User,
-          attributes: ['username', 'calorie_goal'],
-        },
-      ],
     });
 
     const historys = historyData.map((history) => history.get({ plain: true }));
