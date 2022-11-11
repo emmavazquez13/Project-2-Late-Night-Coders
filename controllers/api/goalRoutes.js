@@ -4,14 +4,12 @@ const { Goal } = require('../../models');
 // CREATE goal route
 router.post('/', async (req, res) => {
   try {
-    const goalData = await Goal.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = goalData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(goalData);
+    const newGoal = await Goal.create({
+      ...req.body,
+      user_id: req.session.user_id,
     });
+
+    res.status(200).json(newGoal);
   } catch (err) {
     res.status(400).json(err);
   }
