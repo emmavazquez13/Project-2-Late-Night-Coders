@@ -1,14 +1,49 @@
 const router = require('express').Router();
 const { History } = require('../../models');
 const withAuth = require('../../utils/auth');
+const fetch = require('node-fetch');
+require('dotenv').config();
 
 // CREATE food history route
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
+    const query = req.body.name;
+    const response = await fetch(
+      `https://api.calorieninjas.com/v1/nutrition?query=${query}`,
+      {
+        headers: {
+          'X-Api-Key': process.env.API_KEY,
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+
+    // Joins multiple food names into one array
+    const foodNameArr = data.items.map(function (items) {
+      return items.name;
+    });
+
     const newHistory = await History.create({
-      calories: req.body.calories,
-      food_name: req.body.food_name,
-      quantity: req.body.quantity,
+      food_name: foodNameArr.join(' and '),
+      calories: data.items.reduce((accumulator, object) => {
+        return accumulator += object.calories;
+      }, 0),
+      protein: data.items.reduce((accumulator, object) => {
+        return accumulator += object.protein_g;
+      }, 0),
+      fat: data.items.reduce((accumulator, object) => {
+        return accumulator += object.fat_total_g;
+      }, 0),
+      sodium: data.items.reduce((accumulator, object) => {
+        return accumulator += object.sodium_mg;
+      }, 0),
+      sugar: data.items.reduce((accumulator, object) => {
+        return accumulator += object.sugar_g;
+      }, 0),
+      carbs: data.items.reduce((accumulator, object) => {
+        return accumulator += object.carbohydrates_total_g;
+      }, 0),
       user_id: req.session.user_id,
     });
 
@@ -18,29 +53,8 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// UPDATE food history route
-router.put('/:id', async (req, res) => {
-  try {
-    // update history data
-    const updatedHistory = await History.update(
-      { calories: req.body.calories, food_name: req.body.food_name, quantity: req.body.quantity },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
-
-    if (!updatedHistory) {
-      res.status(404).json({ message: 'No food history found with this id' });
-      return;
-    }
-
-    res.status(200).json(updatedHistory);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// GET daily calorie sum
+router.get('/daily-sum',)
 
 // DELETE food history route
 router.delete('/:id', withAuth, async (req, res) => {

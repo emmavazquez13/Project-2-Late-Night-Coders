@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const historyRoutes = require('./historyRoutes');
-const foodRoutes = require('./foodRoutes');
+const goalRoutes = require('./goalRoutes');
 
 router.use('/users', userRoutes);
 router.use('/history', historyRoutes);
-router.use('/fetch_food', foodRoutes);
+router.use('/goal', goalRoutes);
 
 module.exports = router;
