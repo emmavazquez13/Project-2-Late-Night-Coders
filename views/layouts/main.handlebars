@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Daily Fit Nutrition </title>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- Googlefonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/762078615f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div class="topnav">
+            <img class="logo-img" src="./images/logo.png" width="75" height="65" ALT="align box" ALIGN=CENTER>
+            <a class="active" href="">Daily Fit Nutrition</a>
+            {{#if logged_in}}
+            <a href="/logout" id="logout">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+            <a href="./my-daily.html">My Diary</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Render the sub layout -->
+        {{{ body }}}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background-color: #929fba">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            My Fit Nutrition
+                        </h6>
+                        <p>
+                            An app/website where you can track your calories, the simple way
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+    
+                    <hr class="w-100 clearfix d-md-none" />
+    
+                    <!-- Grid column -->
+    
+                    <hr class="w-100 clearfix d-md-none" />
+    
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+    
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                        <p><i class="fas fa-home mr-3"></i> 1234 West Gate St, Austin TX 78745</p>
+                        <p><i class="fas fa-envelope mr-3"></i> myfitnutrition@gmail.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> 787-675-0934</p>
+                    </div>
+                    <!-- Grid column -->
+    
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+    
+                        <!-- Facebook -->
+                        <a
+                            class="btn btn-primary btn-floating m-1"
+                            style="background-color: #3b5998"
+                            href="https://Facebook.com/"
+                            role="button"
+                            ><i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <!-- Pinterest -->
+                        <a
+                            class="btn btn-primary btn-floating m-1"
+                            style="background-color: #d63631"
+                            href="https://Pinterest.com/"
+                            role="button"
+                            ><i class="fa-brands fa-square-pinterest"></i>
+                        </a>
+    
+                        <!-- Twitter -->
+                        <a
+                            class="btn btn-primary btn-floating m-1"
+                            style="background-color: #55acee"
+                            href="https://twitter.com"
+                            role="button"
+                            ><i class="fab fa-twitter"></i>
+                        </a>
+    
+                        <!-- Google -->
+                        <a
+                            class="btn btn-primary btn-floating m-1"
+                            style="background-color: #2f9144"
+                            href="https://www.google.com/"
+                            role="button"
+                            ><i class="fab fa-google"></i>
+                        </a>
+    
+                        <!-- Instagram -->
+                        <a
+                            class="btn btn-primary btn-floating m-1"
+                            style="background-color: #ac2bac"
+                            href="https://www.instagram.com/"
+                            role="button"
+                            ><i class="fab fa-instagram"></i>
+                        </a>
+
+                        <!-- Github -->
+                        <a
+                            class="btn btn-primary btn-floating m-1"
+                            style="background-color: #333333"
+                            href="https://github.com/"
+                            role="button"
+                            ><i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div
+            class="text-center p-3"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+            >
+            © 2022 Copyright My Fit Nutrition
+        </div>
+    
+    </footer>
+
+<!-- Render script for logged in users only -->
+{{#if logged_in}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="/js/logout.js"></script>
+{{/if}}
+</body>
+    
+</html>
