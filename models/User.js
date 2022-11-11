@@ -35,6 +35,13 @@ User.init(
         len: [8],
       },
     },
+    goal_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'goal',
+        key: 'id',
+      },
+    },
   },
   {
     hooks: {
