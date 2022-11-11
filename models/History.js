@@ -16,19 +16,33 @@ History.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    calories: {
-      type: DataTypes.DECIMAL,
-    },
     food_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    quantity: {
-      type: DataTypes.INTEGER,
+    calories: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
-      validate: {
-        min: 1,
-      },
+    },
+    protein: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    fat: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    sodium: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    sugar: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    carbs: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -43,7 +57,7 @@ History.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'history',
   }
 );
 

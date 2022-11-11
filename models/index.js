@@ -1,15 +1,25 @@
 // Import and require model tables
 const User = require('./User');
 const History = require('./History');
+const Goal = require('./Goal');
 
 // Model Relationships
-User.hasMany(History, {
-  foreignKey: 'user_id',
-});
-
-History.belongsTo(User, {
+User.belongsTo(Goal, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-module.exports = { User, History };
+Goal.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+User.hasMany(History, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
+History.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+module.exports = { User, History, Goal };
