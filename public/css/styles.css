@@ -1,0 +1,146 @@
+* body {
+    background-color: rgb(250, 250, 250);
+}
+
+/* Header Navigation */
+.topnav {
+    background-color: #929fba;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: right;
+    color: rgb(250, 250, 250);
+    text-align: center;
+    padding: 20px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    float: Left;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logo-img {
+    float: left;
+    position: relative;
+}
+
+
+/* images under the main image */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* images under the main image cont. */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 5px;
+    text-align:center;
+    padding:20px;
+    margin: 0px;
+    border-radius:10%;
+}
+
+
+/* Goals */
+.food {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:80px;
+    margin:20px;
+    border-radius:10%;
+}
+
+.text {
+    font-size: 20px;
+    text-align:center;
+}
+
+/* Recipes & Inspiration */
+
+.receipes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:80px;
+    margin:20px;
+    border-radius:10%;
+}
+
+.text {
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.form-container {
+    max-width: 45rem;
+    height: 55rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15rem 2rem;
+    margin: auto;
+    margin-top: 0rem;
+    box-shadow: 0px 2px 10px 0px #f1f5f9;
+    border: solid #f1f5f9;
+    background-color: rgba(212, 212, 212, 0.6);
+}
+
+.form-group {
+    margin: 1rem 0;
+}
+
+#emailHelp {
+    font-size: 1.5rem;
+}
+
+#got-account {
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+#get-fit-text {
+    font-size: 3rem;
+}
+
+/*X-Small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) { ... }
+
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) { 
+
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) { ... }
+
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) { ... }
+
+/*X-Large devices (large desktops, less than 1400px)*/
+@media (max-width: 1399.98px) { ... }
+
+/*XX-Large devices (larger desktops)
+// No media query since the xxl breakpoint has no upper bound on its width */
