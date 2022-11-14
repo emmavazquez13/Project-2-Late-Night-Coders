@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Goal } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // CREATE goal route
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newGoal = await Goal.create({
       ...req.body,
@@ -16,7 +17,7 @@ router.post('/', async (req, res) => {
 });
 
 // UPDATE calorie goal route
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     // update goal data
     const updatedGoal = await Goal.update(
