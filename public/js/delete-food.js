@@ -1,5 +1,4 @@
 const delButtonHandler = async (event) => {
-
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -22,5 +21,17 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('.food-list')
+  .querySelector('.breakfast-food-list')
+  .addEventListener('click', delButtonHandler);
+
+document
+  .querySelector('.lunch-food-list')
+  .addEventListener('click', delButtonHandler);
+
+document
+  .querySelector('.dinner-food-list')
+  .addEventListener('click', delButtonHandler);
+
+document
+  .querySelector('.snacks-food-list')
   .addEventListener('click', delButtonHandler);

@@ -59,13 +59,13 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // GET daily calorie sum
-router.get('/daily-sum/:id', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const overallSum = await History.findAll({
       where: {
-        user_id: req.params.id,
+        user_id: req.session.user_id,
       },
-      group: ['date'],
+      // group: ['date'],
       attributes: [
         'date',
         [sequelize.fn('sum', sequelize.col('calories')), 'calorie_sum'],

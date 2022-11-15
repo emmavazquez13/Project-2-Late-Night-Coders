@@ -9,14 +9,14 @@
 
 <section>
     <div class="meal-container">
-        <div id="breakfast" class="meal">
-            <form class="new-food-form">
+        <div data-class="breakfast" class="meal">
+            <form class="new-breakfast">
                 <h3>Breakfast</h3>
                 <br>
-                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <input type="text" id="food-name" name="breakfast-food-name" placeholder="Search..">
                 <button class="button" type="submit">add food</button>
             </form>
-            <ul class="food-list">
+            <ul class="breakfast-food-list">
 
                 {{#each meals.breakfast as |history|}}
                     {{>foods history}}
@@ -25,14 +25,14 @@
             </ul>
         </div>
         <hr>
-        <div id="lunch" class="meal">
-            <form class="new-food-form">
+        <div data-class="lunch" class="meal">
+            <form class="new-lunch">
                 <h3>Lunch</h3>
                 <br>
-                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <input type="text" id="food-name" name="lunch-food-name" placeholder="Search..">
                 <button class="button" type="submit">add food</button>
             </form>
-            <ul>
+            <ul class="lunch-food-list">
 
                 {{#each meals.lunch as |history|}}
                     {{>foods history}}
@@ -41,14 +41,14 @@
             </ul>
         </div>
         <hr>
-        <div id="dinner" class="meal">
-            <form class="new-food-form">
+        <div data-class="dinner" class="meal">
+            <form class="new-dinner">
                 <h3>Dinner</h3>
                 <br>
-                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <input type="text" id="food-name" name="dinner-food-name" placeholder="Search..">
                 <button class="button" type="submit">add food</button>
             </form>
-            <ul>
+            <ul class="dinner-food-list">
 
                 {{#each meals.dinner as |history|}}
                     {{>foods history}}
@@ -57,14 +57,14 @@
             </ul>
         </div>
         <hr>
-        <div id="snacks" class="meal">
-            <form class="new-food-form">
+        <div data-class="snacks" class="meal">
+            <form class="new-snacks">
                 <h3>Snacks</h3>
                 <br>
-                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <input type="text" id="food-name" name="snacks-food-name" placeholder="Search..">
                 <button class="button" type="submit">add food</button>
             </form>
-            <ul>
+            <ul class="snacks-food-list">
 
                 {{#each meals.snacks as |history|}}
                     {{>foods history}}
@@ -73,13 +73,11 @@
             </ul>
         </div>
     </div> 
-</section>    
+</section>
  
 <br>
 
 {{>table}}
-
-{{>chart}}
 
 <script src="./js/add-food.js"></script>
 <script src="./js/delete-food.js"></script>

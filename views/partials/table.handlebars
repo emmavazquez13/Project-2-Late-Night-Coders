@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <h4>Total</h4>
-            <p class="cal-values">0</p>
+            <p class="cal-values" id="cal-total">0</p>
         </div>
         <div class="col">
             <h4>Goal</h4>
@@ -20,19 +20,23 @@
 <table>
     <tr>
         <th>Calories</th>
-        <th>Carbs</th>
-        <th>Fat</th>
         <th>Protein</th>
+        <th>Fat</th>
         <th>Sodium</th>
         <th>Sugar</th>
+        <th>Carbs</th>
     </tr>
 
     <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
+        <td id="calories"></td>
+        <td id="protein"></td>
+        <td id="fat"></td>
+        <td id="sodium"></td>
+        <td id="sugar"></td>
+        <td id="carbs"></td>
     </tr>
 </table>
+
+{{>chart}}
+
+<script src="./js/table.js"></script>
