@@ -90,6 +90,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     const historyData = await History.destroy({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id
       },
     });
 

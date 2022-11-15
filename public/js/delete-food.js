@@ -1,27 +1,26 @@
-const deleteFoodHandler = async (event) => {
-  event.preventDefault();
+const delButtonHandler = async (event) => {
 
-  const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length - 1
-  ];
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
-  const response = await fetch(`/api/posts/${id}`, {
-    method: 'DELETE',
-    body: JSON.stringify({
-      post_id: id,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+    const response = await fetch(`/api/history/${id}`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        id: id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  if (response.ok) {
-    document.location.replace('/dashboard/');
-  } else {
-    alert(response.statusText);
+    if (response.ok) {
+      document.location.replace('/diary');
+    } else {
+      alert('Failed to delete food item');
+    }
   }
 };
 
 document
-  .querySelector('.delete-food-btn')
-  .addEventListener('click', deleteFoodHandler);
+  .querySelector('.food-list')
+  .addEventListener('click', delButtonHandler);
