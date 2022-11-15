@@ -2,7 +2,7 @@ const sequelize = require('sequelize');
 const router = require('express').Router();
 const { History } = require('../../models');
 const withAuth = require('../../utils/auth');
-const { format_date } = require('../../utils/helpers');
+// const { format_date } = require('../../utils/helpers');
 const fetch = require('node-fetch');
 require('dotenv').config();
 
@@ -28,8 +28,9 @@ router.post('/', withAuth, async (req, res) => {
 
     // Creates formated date, food name, and nutrients
     const newHistory = await History.create({
-      date: format_date(new Date()),
+      date: new Date(),
       food_name: foodNameArr.join(' and '),
+      category: req.body.category,
       calories: data.items.reduce((accumulator, object) => {
         return (accumulator += object.calories);
       }, 0),

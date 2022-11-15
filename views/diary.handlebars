@@ -1,41 +1,86 @@
-<section id="meals">
-    <h2>My Daily Food Diary</h2>
+<style>
+    body {
+        background-image: url('./images/shutterstock_591295955.png');
+        background-size: cover;
+    }
+</style>
+
+<h2 class="title col-10 col-sm-8 col-md-6 col-lg-4">My Daily Food Diary</h2>
+
+<section>
     <div class="meal-container">
-        <div class="meal">
-            <h4>Breakfast</h4>
-            <input type="text" placeholder="Search..">
-            <button class="button">add food</button>
+        <div id="breakfast" class="meal">
+            <form class="new-food-form">
+                <h3>Breakfast</h3>
+                <br>
+                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <button class="button" type="submit">add food</button>
+            </form>
+            <ul>
+
+                {{#each meals.breakfast as |history|}}
+                    {{>foods history}}
+                {{/each}}
+
+            </ul>
         </div>
         <hr>
-        <div class="meal">
-            <h4>Snacks</h4>
-            <button class="button">add food</button>
+        <div id="lunch" class="meal">
+            <form class="new-food-form">
+                <h3>Lunch</h3>
+                <br>
+                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <button class="button" type="submit">add food</button>
+            </form>
+            <ul>
+
+                {{#each meals.lunch as |history|}}
+                    {{>foods history}}
+                {{/each}}
+
+            </ul>
         </div>
         <hr>
-        <div class="meal">
-            <h4>Lunch</h4>
-            <button class="button">add food</button>
+        <div id="dinner" class="meal">
+            <form class="new-food-form">
+                <h3>Dinner</h3>
+                <br>
+                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <button class="button" type="submit">add food</button>
+            </form>
+            <ul>
+
+                {{#each meals.dinner as |history|}}
+                    {{>foods history}}
+                {{/each}}
+
+            </ul>
         </div>
         <hr>
-        <div class="meal">
-            <h4>Dinner</h4>
-            <button class="button">add food</button>
+        <div id="snacks" class="meal">
+            <form class="new-food-form">
+                <h3>Snacks</h3>
+                <br>
+                <input type="text" id="food-name" name="food-name" placeholder="Search..">
+                <button class="button" type="submit">add food</button>
+            </form>
+            <ul>
+
+                {{#each meals.snacks as |history|}}
+                    {{>foods history}}
+                {{/each}}
+
+            </ul>
         </div>
-    </div>
-    <br>
-    <table>
-        <tr>
-            <th>Calories</th>
-            <th>Carbs</th>
-            <th>Fat</th>
-            <th>Protein</th>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-    </table>
-    <br>
-</section>
+    </div> 
+</section>    
+ 
+<br>
+
+{{>table}}
+
+{{>chart}}
+
+<script src="./js/add-food.js"></script>
+<script src="./js/delete-food.js"></script>
+{{!-- <script src="./js/update-goal.js"></script> --}}
