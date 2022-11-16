@@ -1,20 +1,20 @@
 <div class="cal-container text-center">
     <div class="row">
         <div class="col">
-            <h4>Total</h4>
+            <h4>Total:</h4>
             <p class="cal-values" id="cal-total"></p>
         </div>
-        <form class="col edit-goal-form">
-            <div style="display: inline;">
-                <h4 href="">Goal</h4>
-                <input class="cal-values text-center" data-id="{{id}}" id="cal-goal" name="goal-value" placeholder="{{calorie_goal}}">
+        <form class="col">
+            <div class="edit-goal-form">
+                <h4 href="">Goal:</h4>
+                <input style="height: 42px;" class="text-center" data-id="{{id}}" id="cal-goal" name="goal-value" placeholder="{{calorie_goal}}">
                 <button class="update-btn" type="submit">Update</button>
             </div>
         </form>
-        <div class="col">
+        {{!-- <div class="col">
             <h4>Remaining</h4>
             <p class="cal-values" id="cal-remaining"></p>
-        </div>
+        </div> --}}
     </div>
 </div>
 

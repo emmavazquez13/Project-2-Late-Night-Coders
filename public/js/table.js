@@ -24,7 +24,8 @@ const sumNutrients = async () => {
   ];
 
   document.getElementById('cal-total').textContent = nutritionData[0];
-  document.getElementById('cal-remaining').textContent = document.getElementById('cal-goal') - nutritionData[0];
+  // document.getElementById('cal-remaining').textContent = document.getElementById('cal-goal').input - nutritionData[0];
+  // console.log(document.getElementById('cal-goal').innerText);
 
   const chartData = {
     labels: ['Calories', 'Protein', 'Fat', 'Sodium', 'Sugar', 'Carbs'],

@@ -1,20 +1,18 @@
 /* Navbar */
+
 .navbar-nav {
     margin-left: auto;
 }
  
-.navbar-brand:hover{
-    transform: scale(1.05);
-    transition: all 0.3s ease 0s;
-}
- 
 .nav-link {
     margin-left: auto;
+    font-size: 1.2rem;
 }
  
  .nav-link:hover {
-     transform: scale(1.25);
+     transform: scale(1.05);
      transition: all 0.3s ease 0s;
+     color: #929FBA;
  }
  
  /* Background-Body */
@@ -135,7 +133,7 @@ h3 {
 }
 
 .cal-values {
-    font-size: 1.2rem!important;
+    font-size: 3rem!important;
     text-decoration: none;
 }
 
@@ -157,9 +155,8 @@ h3 {
 }
 
 .cal-container {
-    max-width: 45rem;
+    max-width: 35rem;
     height: 10rem;
-    text-decoration: underline;
     font-size: 1.5rem;
     font-weight: bolder;
     align-items: center;
@@ -222,6 +219,14 @@ table {
     box-shadow: 0px 2px 10px 0px #f1f5f9;
     border: solid #f1f5f9;
     background-color: rgba(212, 212, 212, 0.6);
+}
+
+/* .edit-goal-form {
+    width: 5rem;
+} */
+
+.edit-goal-form button {
+    width: 8rem;
 }
 
 .formInfo-my-daily {
@@ -334,7 +339,7 @@ table {
 
  /* Media Query */
  
- @media (max-width: 576px) {
+ @media (max-width: 576px) {    
     #form { 
         width: 330px;
         margin: 5vh auto 0 -30px;
@@ -355,8 +360,16 @@ table {
     }
 
     p {
-
         margin-bottom: 0.25rem;
+    }
+    .edit-goal-form input {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 646px) {
+    .edit-goal-form button {
+        width: 6rem;
     }
 }
 

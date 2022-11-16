@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, History, Goal } = require('../models');
+const { User, History} = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET homepage route
