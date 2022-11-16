@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS daily_fit_db;
+CREATE DATABASE daily_fit_db;
