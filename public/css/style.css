@@ -3,18 +3,15 @@
     margin-left: auto;
 }
  
-.navbar-brand:hover{
-    transform: scale(1.05);
-    transition: all 0.3s ease 0s;
-}
- 
 .nav-link {
     margin-left: auto;
+    font-size: 1.2rem;
 }
  
  .nav-link:hover {
-     transform: scale(1.25);
+     transform: scale(1.05);
      transition: all 0.3s ease 0s;
+     color: #929FBA;
  }
  
  /* Background-Body */
@@ -334,7 +331,7 @@ table {
 
  /* Media Query */
  
- @media (max-width: 576px) {
+ @media (max-width: 576px) {    
     #form { 
         width: 330px;
         margin: 5vh auto 0 -30px;
