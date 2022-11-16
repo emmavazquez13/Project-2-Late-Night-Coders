@@ -1,0 +1,46 @@
+<div class="cal-container text-center">
+    <div class="row">
+        <div class="col">
+            <h4>Total</h4>
+            <p class="cal-values" id="cal-total"></p>
+        </div>
+        <form class="col edit-goal-form">
+            <div style="display: inline;">
+                <h4 href="">Goal</h4>
+                <input class="cal-values text-center" data-id="{{id}}" id="cal-goal" name="goal-value" placeholder="{{calorie_goal}}">
+                <button class="update-btn" type="submit">Update</button>
+            </div>
+        </form>
+        <div class="col">
+            <h4>Remaining</h4>
+            <p class="cal-values" id="cal-remaining"></p>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<table>
+    <tr>
+        <th>Calories</th>
+        <th>Protein</th>
+        <th>Fat</th>
+        <th>Sodium</th>
+        <th>Sugar</th>
+        <th>Carbs</th>
+    </tr>
+
+    <tr>
+        <td id="calories"></td>
+        <td id="protein"></td>
+        <td id="fat"></td>
+        <td id="sodium"></td>
+        <td id="sugar"></td>
+        <td id="carbs"></td>
+    </tr>
+</table>
+
+{{>chart}}
+
+<script src="./js/update-goal.js"></script>
+<script src="./js/table.js"></script>

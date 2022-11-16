@@ -19,6 +19,10 @@ History.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     calories: {
       type: DataTypes.DECIMAL,
       allowNull: false,
