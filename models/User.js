@@ -35,12 +35,9 @@ User.init(
         len: [8],
       },
     },
-    goal_id: {
+    calorie_goal: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'goal',
-        key: 'id',
-      },
+      defaultValue: 1000
     },
   },
   {

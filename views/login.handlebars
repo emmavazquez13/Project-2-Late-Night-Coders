@@ -1,18 +1,25 @@
-<!-- Background image -->
-<div id="background" class="p-5 text-center bg-image" style="background-image: url('/images/berries.jpg');">
-    <form id="login-form" class="form-container">
-        <p id="get-fit-text">Let's get fit!</p>
-        <div class="form-group">
-            <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp" placeholder="yourEmail@gmail.com">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" id="password-login" placeholder="Password">
-        </div>
-            <button type="submit" id="login-btn" class="btn btn-outline-light btn-lg" style="color: black;">Login</button>
-        <div>
-            <a id="got-account" href="/signup">Create account</a>
-        </div>
-    </form>
+<div id="background"
+    class="p-5 text-center bg-image"
+    style="background-image: url('./images/berries.jpg')">
+    <div class="container">
+        <form id="login-form" class="form">
+            <div class="formInfo">
+                <h1>Let's get fit!</h1>
+
+                <div class="input-control">
+                    <input id="email-login" name="email" type="text" placeholder="yourEmail@email.com">
+                    <div class="error"></div>
+                </div>
+
+                <div class="input-control">
+                    <input id="password-login" name="password" type="password" placeholder="Password">
+                    <div class="error"></div>
+                </div>
+                <button id="login-btn" type="submit" class="btn btn-outline-light btn-lg" style="color: black;">Login</button>
+                <div><a id="got-account" href="/signup">Create account</a></div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script src="/js/login.js"></script>

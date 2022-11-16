@@ -1,18 +1,15 @@
 const { User } = require('../models');
+const bcrypt = require('bcrypt');
 
-const userData =
-[
+const userData = [
   {
-    username: "Adam",
-    email: "adamsherrill2@gmail.com",
-    password: "password123"
+    username: 'Tom Bombadil',
+    email: 'test@test.com',
+    password: 'password123',
   },
-  {
-    username: "Sam",
-    email: "sam@email.com",
-    password: "password1234"
-  },
-]
+];
+
+userData.password = bcrypt.hash(userData.password, 10);
 
 const seedUsers = () => User.bulkCreate(userData);
 

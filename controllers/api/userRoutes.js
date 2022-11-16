@@ -17,6 +17,30 @@ router.post('/', async (req, res) => {
   }
 });
 
+// UPDATE user goal
+router.put('/goal/:id', async (req, res) => {
+  try {
+    // update goal data
+    const updatedGoal = await User.update(
+      { calorie_goal: req.body.calorie_goal },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    );
+
+    if (!updatedGoal) {
+      res.status(404).json({ message: 'No calorie goal found with this id' });
+      return;
+    }
+
+    res.status(200).json(updatedGoal);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Login route
 router.post('/login', async (req, res) => {
   try {

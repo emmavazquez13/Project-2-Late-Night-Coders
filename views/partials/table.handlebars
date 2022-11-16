@@ -2,15 +2,18 @@
     <div class="row">
         <div class="col">
             <h4>Total</h4>
-            <p class="cal-values" id="cal-total">0</p>
+            <p class="cal-values" id="cal-total"></p>
         </div>
-        <div class="col">
-            <h4>Goal</h4>
-            <p class="cal-values">0</p>
-        </div>
+        <form class="col edit-goal-form">
+            <div style="display: inline;">
+                <h4 href="">Goal</h4>
+                <input class="cal-values text-center" data-id="{{id}}" id="cal-goal" name="goal-value" placeholder="{{calorie_goal}}">
+                <button class="update-btn" type="submit">Update</button>
+            </div>
+        </form>
         <div class="col">
             <h4>Remaining</h4>
-            <p class="cal-values">0</p>
+            <p class="cal-values" id="cal-remaining"></p>
         </div>
     </div>
 </div>
@@ -39,4 +42,5 @@
 
 {{>chart}}
 
+<script src="./js/update-goal.js"></script>
 <script src="./js/table.js"></script>

@@ -1,28 +1,33 @@
-<!-- Background image -->
 <div id="background"
     class="p-5 text-center bg-image"
-    style="background-image: url('./images/berries.jpg');">
-    <form id="signup-form" class="form-container">
-        <p id="get-fit-text">Are you ready to get fit?</p>
-        <div class="row">
-            <div class="col">
-                <input id="username-first-signup" type="text" class="form-control" placeholder="First name">
-            </div>
-            <div class="col">
-                <input id="username-last-signup" type="text" class="form-control" placeholder="Last name">
-            </div>
+    style="background-image: url('./images/berries.jpg')">
+
+    <div class="container">
+    <form id="signup-form" class="form">
+        <div class="formInfo">
+        <h1>Are you ready to get fit?</h1>
+        <div class="input-control">
+            <input id="username-first-signup" name="firstName" type="text" placeholder="First name">
+            <div class="error"></div>
         </div>
-        <div class="form-group">
-            <input id="email-signup" type="email" class="form-control" aria-describedby="emailHelp" placeholder="yourEmail@gmail.com">
+        <div class="input-control">
+            <input id="username-last-signup" name="lastName" type="text" placeholder="Last name">
+            <div class="error"></div>
         </div>
-        <div class="form-group">
-            <input id="password-signup" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="input-control">
+            <input id="email-signup" name="email" type="text" placeholder="yourEmail@email.com">
+            <div class="error"></div>
         </div>
-            <button type="submit" class="btn btn-outline-light btn-lg" style="color: black;">Submit</button>
-        <div>
-            <a id="got-account" href="/login">Already have an account</a>
+        <div class="input-control">
+            <input id="password-signup" name="password" type="password" placeholder="Password">
+            <div class="error"></div>
+        </div>
+        <button id="submit-btn" type="submit" class="btn btn-outline-light btn-lg" href="#" role="button" style="color: black;">Submit</button>
+        <div><a id="got-account" href="/login">Already have an account</a></div>
         </div>
     </form>
+    </div>
+
 </div>
 
 <script src="/js/signup.js"></script>
