@@ -27,7 +27,7 @@ router.get('/diary', withAuth, async (req, res) => {
       if (prev[current.category]) {
         prev[current.category].push(current.get({ plain: true }));
       } else {
-        prev[current.category] = [];
+        prev[current.category] = [current.get({ plain: true})];
       }
       return prev;
     }, {});

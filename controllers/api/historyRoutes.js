@@ -2,7 +2,6 @@ const sequelize = require('sequelize');
 const router = require('express').Router();
 const { History } = require('../../models');
 const withAuth = require('../../utils/auth');
-// const { format_date } = require('../../utils/helpers');
 const fetch = require('node-fetch');
 require('dotenv').config();
 

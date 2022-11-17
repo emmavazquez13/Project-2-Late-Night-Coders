@@ -7,7 +7,7 @@
 In this Project we created a full stack calorie tracker app. Which utilizes an MVC framework using MySQL, Express.js, Sequelize, Chart.js and handlebars.js in order to allow users to create secure accounts and perform appropriate CRUD operations allowed by the server, to better organize there daily calorie intake.
 
 Heroku deployed app:
-(https://daily-fit.herokuapp.com//)
+(https://daily-fit.herokuapp.com/)
 
 ## Table of Contents
 
