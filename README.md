@@ -91,6 +91,3 @@ Features you will find in this app include:
 - Third party api CalorieNinja install via node-fetch
 - easy access to sum of nutrients via tables and charts
 
-## Questions
-
-If you have any questions about the repo open an issue or contact me directly at adamsherrill2@gmail.com. You can find more of my work at [ajsherrill2](https://github.com/ajsherrill2/).
